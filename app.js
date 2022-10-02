@@ -5,7 +5,7 @@ const http = require("http");
 const path = require("path")
 
 
-http.createServer(function(reg,res){
+const server = http.createServer(function(reg,res){
     var filePath = '.'+reg.url;
 
     if(filePath == './'){
@@ -34,7 +34,8 @@ http.createServer(function(reg,res){
             res.end();
         });
     }
-}).listen(process.env.PORT || 5000, () => {
+})
+server.listen(process.env.PORT || 5000, () => {
     const port = server.address().port;
     console.log(`Express is working on port ${port}`);
 });

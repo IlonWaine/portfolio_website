@@ -34,7 +34,10 @@ http.createServer(function(reg,res){
             res.end();
         });
     }
-}).listen(3000,() => console.log("is running on 80"));;
+}).listen(process.env.PORT || 5000, () => {
+    const port = server.address().port;
+    console.log(`Express is working on port ${port}`);
+});
 // app.use(express.static("assets"));
 
 // app.get('/',function(req,res){
